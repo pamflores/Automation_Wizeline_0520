@@ -17,5 +17,5 @@ fixture ('Cart tests')
 
 //Challenge 7
 test('Missing Information', async t =>{
-
+    await 
 })

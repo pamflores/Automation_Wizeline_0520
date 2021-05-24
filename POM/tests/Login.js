@@ -1,0 +1,28 @@
+import {Selector, t} from 'testcafe'
+import loginPage from '../pages/loginPage'
+import productListingPage from '../pages/productListingPage'
+import common from '../common/common'
+import {URL, CREDENTIALS, MESSAGES} from '../common/data'
+
+fixture ('Login tests')
+      .page(URL.URL)
+
+test('User can login with valid credentials', async t =>{
+      await loginPage.loginToSite(CREDENTIALS.VALID_USER.USERNAME,CREDENTIALS.VALID_USER.PASSWORD)
+      await t.expect(productListingPage.PLPTitle.exists).ok()
+})
+
+test('User can not login with invalid credentials', async t =>{
+      await loginPage.loginToSite(CREDENTIALS.INVALID_USER.USERNAME,CREDENTIALS.INVALID_USER.PASSWORD)
+      await t.
+            expect(loginPage.errorMessage.exists).ok()
+            .expect(loginPage.errorMessage.innerText).eql(MESSAGES.ERROR_MSG.INVALID_LOGIN)
+})
+
+test('User can logout', async t =>{
+      await loginPage.loginToSite(CREDENTIALS.VALID_USER.USERNAME,CREDENTIALS.VALID_USER.PASSWORD)
+      await t.expect(productListingPage.PLPTitle.exists).ok()
+            .click(common.hamMenu)
+            .click(common.logoutLink)
+            .expect(loginPage.loginTitle.exists).ok()
+})

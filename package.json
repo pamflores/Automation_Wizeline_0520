@@ -1,0 +1,20 @@
+{
+  "name": "qa-workshop",
+  "version": "1.0.0",
+  "description": "Wizeline Academy QA 0520",
+  "main": "index.js",
+  "scripts": {
+    "test-all-chrome": "testcafe chrome ./POM/tests/",
+    "test-all-safari": "testcafe safari ./POM/tests/",
+    "test-login-chrome": "testcafe chrome ./POM/tests/Login.js",
+    "test-login-safari": "testcafe safari ./POM/tests/Login.js",
+    "test-add-items-chrome": "testcafe chrome ./POM/tests/AddItems.js",
+    "test-add-items-safari": "testcafe safari ./POM/tests/AddItems.js"
+
+  },
+  "author": "Pamela Flores",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
+}

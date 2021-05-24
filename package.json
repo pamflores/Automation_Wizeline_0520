@@ -9,7 +9,9 @@
     "test-login-chrome": "testcafe chrome ./POM/tests/Login.js",
     "test-login-safari": "testcafe safari ./POM/tests/Login.js",
     "test-add-items-chrome": "testcafe chrome ./POM/tests/AddItems.js",
-    "test-add-items-safari": "testcafe safari ./POM/tests/AddItems.js"
+    "test-add-items-safari": "testcafe safari ./POM/tests/AddItems.js",
+    "test-cart-chrome": "testcafe chrome ./POM/tests/Cart.js",
+    "test-cart-safari": "testcafe safari ./POM/tests/Cart.js"
 
   },
   "author": "Pamela Flores",

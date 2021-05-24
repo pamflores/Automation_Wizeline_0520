@@ -15,7 +15,7 @@ fixture ('Cart tests')
             await viewCart.openCart() //Challenge 4
         })
 
-
-test('Open Cart', async t =>{
+//Challenge 7
+test('Missing Information', async t =>{
 
 })

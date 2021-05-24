@@ -15,7 +15,7 @@ async loginToSite(username,password){
         typeText(this.userNameField, username, {paste:true})
         .typeText(this.passwordField, password, {paste:true})
         .click(this.loginButton)
-}
+  }
 
 }
 

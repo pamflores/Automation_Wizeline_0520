@@ -4,7 +4,7 @@ import common from '../common/common'
 class viewCart{
 
   constructor(){
-      this.cartTitle=Selector ('.title')
+      this.cartTitle = Selector ('.title')
   }
 
   async openCart(){

@@ -16,7 +16,7 @@ class productDetailPage{
 
   async addItemToCart(){
     await t.click(this.AddToCartBtn)
-    await t.expect(await this.AddToCartBtn.innerText).eql("REMOVE") //Assertion.
+    await t.expect(await this.AddToCartBtn.innerText).eql("REMOVE") //Assertion
     //Added double await because with only one, it was not "seeing" the REMOVE text
 
   }

@@ -12,7 +12,7 @@ fixture ('Cart tests')
         .beforeEach( async t=> {
             await loginPage.loginToSite(CREDENTIALS.VALID_USER.USERNAME,CREDENTIALS.VALID_USER.PASSWORD)
             await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK)
-            await viewCart.openCart()
+            await viewCart.openCart() //Challenge 4
         })
 
 

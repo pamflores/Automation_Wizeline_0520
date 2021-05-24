@@ -8,7 +8,7 @@ class productListingPage{
     this.PLPTitle = Selector ('.title')
     this.productLink = Selector ('.inventory_item_name')
     this.AddOnesieToCart = Selector ('#add-to-cart-sauce-labs-onesie')
-    this.RemoveOnesie= Selector ('#remove-sauce-labs-onesie')
+    this.RemoveOnesie = Selector ('#remove-sauce-labs-onesie')
   }
 
   async addItemToCart(prod){

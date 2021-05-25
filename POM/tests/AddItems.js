@@ -10,8 +10,7 @@ import roles from '../common/roles'
 fixture ('Add Items tests')
         .page(URL.URL)
         .beforeEach( async t=> {
-            //await loginPage.loginToSite(CREDENTIALS.VALID_USER.USERNAME,CREDENTIALS.VALID_USER.PASSWORD) //Challenge 1
-            await t.useRole(roles.validUserRole)
+            await t.useRole(roles.validUserRole) //Bonus 1
         })
 
 //Challenge 5
@@ -23,13 +22,13 @@ test('Add Item to the Cart from PLP', async t =>{
 
 // Challenge 6
 test('Add Items to the Cart from PDP', async t =>{
-  await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK)
+  await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK) //Assertions inside function
 
 })
 
 //Challenge 9
 test('Items Were Added To The Cart', async t =>{
     await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK)
-    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.LIGHT)).eql(true)
-    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.BACKPACK)).eql(true)
+    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.LIGHT)).eql(true)  //Assertion
+    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.BACKPACK)).eql(true)  //Assertion
 })

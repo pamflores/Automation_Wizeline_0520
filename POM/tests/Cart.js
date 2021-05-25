@@ -6,12 +6,13 @@ import viewCartPage from '../pages/viewCartPage'
 import cartInfoPage from '../pages/cartInfoPage'
 import cartOverviewPage from '../pages/cartOverviewPage'
 import thankYouPage from '../pages/thankYouPage'
+import roles from '../common/roles'
 
 
 fixture ('Cart tests')
         .page(URL.URL)
         .beforeEach( async t=> {
-            await loginPage.loginToSite(CREDENTIALS.VALID_USER.USERNAME,CREDENTIALS.VALID_USER.PASSWORD) //Challenge 1
+            await t.useRole(roles.validUserRole) //Bonus 1
             await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK) // Challenge 6
             await viewCartPage.openCart() //Challenge 4
         })
@@ -33,5 +34,5 @@ test('Complete a Purchase', async t =>{
     await cartInfoPage.insertInfo(NAMES.FIRST_NAME,NAMES.LAST_NAME,NAMES.POSTAL_CODE)
     await t.click(cartOverviewPage.finishBtn)
     await thankYouPage.verifyPurchaseMsgs()
-    
+
 })

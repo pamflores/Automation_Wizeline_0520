@@ -14,7 +14,7 @@ test('User can login with valid credentials', async t =>{
 })
 
 //Challenge 2
-test('User can not login with invalid credentials', async t =>{
+test('User cannot login with invalid credentials', async t =>{
       await loginPage.loginToSite(CREDENTIALS.INVALID_USER.USERNAME,CREDENTIALS.INVALID_USER.PASSWORD)
       await t.
             expect(loginPage.errorMessage.exists).ok()

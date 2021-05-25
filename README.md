@@ -7,6 +7,7 @@
   │      ├── common
   │         ├── common.js
   │         ├── data.js
+  │         ├── roles.js
   │      ├── pages
   │         ├── cartInfoPage.js
   │         ├── cartOverviewPage.js
@@ -64,6 +65,6 @@ and then run test script:
 npm run test-all-chrome-reporting
 
 
-#### REFERENCE 
+#### REFERENCE
 
 https://testcafe.io/

@@ -6,13 +6,17 @@
   "scripts": {
     "test-all-chrome": "testcafe chrome ./POM/tests/",
     "test-all-safari": "testcafe safari ./POM/tests/",
+    "test-all-ff": "testcafe firefox ./POM/tests/",
     "test-login-chrome": "testcafe chrome ./POM/tests/Login.js",
     "test-login-safari": "testcafe safari ./POM/tests/Login.js",
+    "test-login-ff": "testcafe firefox ./POM/tests/Login.js",
     "test-add-items-chrome": "testcafe chrome ./POM/tests/AddItems.js",
     "test-add-items-safari": "testcafe safari ./POM/tests/AddItems.js",
+    "test-add-items-ff": "testcafe firefox ./POM/tests/AddItems.js",
     "test-cart-chrome": "testcafe chrome ./POM/tests/Cart.js",
-    "test-cart-safari": "testcafe safari ./POM/tests/Cart.js"
-
+    "test-cart-safari": "testcafe safari ./POM/tests/Cart.js",
+    "test-cart-ff": "testcafe firefox ./POM/tests/Cart.js",
+    "test-all-chrome-reporting": "testcafe chrome ./POM/tests/ --reporter html:reports/html/report.html"
   },
   "author": "Pamela Flores",
   "license": "ISC",

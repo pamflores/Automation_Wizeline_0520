@@ -1,16 +1,17 @@
 import {Selector, t} from 'testcafe'
 import loginPage from '../pages/loginPage'
 import productListingPage from '../pages/productListingPage'
-//import productDetailPage from '../pages/productDetailPage'
 import common from '../common/common'
-import {URL, TITLES, PRODUCTS, CREDENTIALS} from '../common/data'
-import viewCart from '../pages/viewCart'
+import {URL, PRODUCTS, CREDENTIALS} from '../common/data'
+import cartOverviewPage from '../pages/cartOverviewPage'
+import roles from '../common/roles'
 
 
 fixture ('Add Items tests')
         .page(URL.URL)
         .beforeEach( async t=> {
-            await loginPage.loginToSite(CREDENTIALS.VALID_USER.USERNAME,CREDENTIALS.VALID_USER.PASSWORD)
+            //await loginPage.loginToSite(CREDENTIALS.VALID_USER.USERNAME,CREDENTIALS.VALID_USER.PASSWORD) //Challenge 1
+            await t.useRole(roles.validUserRole)
         })
 
 //Challenge 5
@@ -24,4 +25,11 @@ test('Add Item to the Cart from PLP', async t =>{
 test('Add Items to the Cart from PDP', async t =>{
   await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK)
 
+})
+
+//Challenge 9
+test('Items Were Added To The Cart', async t =>{
+    await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK)
+    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.LIGHT)).eql(true)
+    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.BACKPACK)).eql(true)
 })

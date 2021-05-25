@@ -1,24 +1,36 @@
 import {Selector, t} from 'testcafe'
-import viewCart from '../pages/viewCart'
+import viewCartPage from '../pages/viewCartPage'
 import common from '../common/common'
+import {TITLES} from '../common/data'
+import cartOverviewPage from '../pages/cartOverviewPage'
 
 class cartInfoPage{
 
   constructor(){
       this.infoTitle = Selector('.title')
       this.firstNameField = Selector('#first-name')
-      this.secondNameField = Selector('#second-name')
+      this.lastNameField = Selector('#last-name')
       this.postalCodeField = Selector('#postal-code')
       this.continueBtn = Selector ('#continue')
+      this.errorMessage = Selector ('.error-message-container')
   }
 
   async insertInfo(firstName,lastName,postalCode){
-    await t.click(viewCart.checkoutBtn)
+    await t.click(viewCartPage.checkoutBtn)
           .expect(this.infoTitle.innerText).eql(TITLES.CART_INFO_TITLE)// Assertion
-          .typeText(this.firstNameField, firstName, {paste:true})
-          .typeText(this.secondNameField, secondName, {paste:true})
-          .typeText(this.postalCodeField, postalCode, {paste:true})
 
+    if(firstName != null){
+      await t.typeText(this.firstNameField, firstName, {paste:true})
+    }
+    if(lastName != null){
+      await t.typeText(this.lastNameField, lastName, {paste:true})
+    }
+    if(postalCode != null){
+      await t.typeText(this.postalCodeField, postalCode, {paste:true})
+    }
+
+    await t.click(this.continueBtn)
+    //await t.expect(cartOverviewPage.overviewTitle.innerText).eql(TITLES.CART_OVERVIEW_TITLE)
   }
 
 }

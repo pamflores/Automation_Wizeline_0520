@@ -13,6 +13,7 @@
   │         ├── loginPage.js
   │         ├── productDetailPage.js
   │         ├── productListingPage.js
+  │         ├── thankYouPage.js
   │         ├── viewCart.js
   │       ├── tests
   │         ├── AddItems.js
@@ -21,14 +22,16 @@
   └── .env
 ````
 
-**INSTALLATION**
+#### **INSTALLATION**
+
+To download testcafe, follow instructions: https://testcafe.io/documentation/402834/guides/basic-guides/install-testcafe
 
 To download the code, clone repo: https://github.com/pamflores/Automation_Wizeline_0520
 
 run command npm install in the folder's route
 
 
-**EXECUTION**
+#### **EXECUTION**
 
 In terminal, run the following commands
 
@@ -49,3 +52,18 @@ test-add-items-safari - to run Add Items tests on Safari
 test-cart-chrome - to run Cart tests on Chrome
 
 test-cart-safari - to run Cart tests on Safari
+
+**For reporting purposes:**
+
+Run first in terminal:
+
+npm install -g testcafe-reporter-html@latest
+
+and then run test script:
+
+npm run test-all-chrome-reporting
+
+
+#### REFERENCE 
+
+https://testcafe.io/

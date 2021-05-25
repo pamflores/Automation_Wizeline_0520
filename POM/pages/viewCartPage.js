@@ -1,10 +1,12 @@
 import {Selector, t} from 'testcafe'
 import common from '../common/common'
+import {TITLES} from '../common/data'
 
-class viewCart{
+class viewCartPage{
 
   constructor(){
       this.cartTitle = Selector ('.title')
+      this.checkoutBtn = Selector ('#checkout')
   }
 
   async openCart(){
@@ -13,4 +15,4 @@ class viewCart{
   }
 
 }
-export default new viewCart()
+export default new viewCartPage()

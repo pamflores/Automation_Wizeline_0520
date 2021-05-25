@@ -21,7 +21,6 @@ test('User can not login with invalid credentials', async t =>{
             .expect(loginPage.errorMessage.innerText).eql(MESSAGES.ERROR_MSG.INVALID_LOGIN)
 })
 
-
 //Challenge 3
 test('User can logout', async t =>{
       await loginPage.loginToSite(CREDENTIALS.VALID_USER.USERNAME,CREDENTIALS.VALID_USER.PASSWORD)

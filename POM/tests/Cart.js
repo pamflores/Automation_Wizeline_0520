@@ -20,19 +20,19 @@ fixture ('Cart tests')
 //Challenge 7
 test('Missing Information', async t =>{
     await cartInfoPage.insertInfo(NAMES.FIRST_NAME,NAMES.LAST_NAME)
-    await t.expect(cartInfoPage.errorMessage.innerText).contains(MESSAGES.ERROR_MSG.POSTAL_CODE_REQ)
+    await t.expect(cartInfoPage.errorMessage.innerText).contains(MESSAGES.ERROR_MSG.POSTAL_CODE_REQ) //Assertion
 })
 
 //Challenge 8
 test('Valid Information', async t =>{
     await cartInfoPage.insertInfo(NAMES.FIRST_NAME,NAMES.LAST_NAME,NAMES.POSTAL_CODE)
-    await t.expect(cartOverviewPage.overviewTitle.innerText).eql(TITLES.CART_OVERVIEW_TITLE)
+    await t.expect(cartOverviewPage.overviewTitle.innerText).eql(TITLES.CART_OVERVIEW_TITLE) //Assertion
 })
 
 //Challenge 10
 test('Complete a Purchase', async t =>{
     await cartInfoPage.insertInfo(NAMES.FIRST_NAME,NAMES.LAST_NAME,NAMES.POSTAL_CODE)
     await t.click(cartOverviewPage.finishBtn)
-    await thankYouPage.verifyPurchaseMsgs()
+    await thankYouPage.verifyPurchaseMsgs() //Assertions
 
 })

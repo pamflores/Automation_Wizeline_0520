@@ -14,7 +14,7 @@ fixture ('Add Items tests')
         })
 
 //Challenge 5
-test('Add Item to the Cart from PLP', async t =>{
+test('Add One Item to the Cart from PLP', async t =>{
    await productListingPage.clickAddToCart(PRODUCTS.ONESIE)
    await t.expect(common.cartBadge.innerText).eql("1") // Assertion
 })
@@ -22,7 +22,7 @@ test('Add Item to the Cart from PLP', async t =>{
 // Challenge 6
 test('Add Items to the Cart from PDP', async t =>{
   await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK) //Assertions inside function
-
+  // Assertions implicit in next test
 })
 
 //Challenge 9

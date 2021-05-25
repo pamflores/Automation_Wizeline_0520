@@ -10,14 +10,14 @@ fixture ('Login tests')
 //Challenge 1
 test('User can login with valid credentials', async t =>{
       await loginPage.loginToSite(CREDENTIALS.VALID_USER.USERNAME,CREDENTIALS.VALID_USER.PASSWORD)
-      await t.expect(productListingPage.PLPTitle.exists).ok()
+      await t.expect(productListingPage.PLPTitle.exists).ok() //Assertion
 })
 
 //Challenge 2
 test('User cannot login with invalid credentials', async t =>{
       await loginPage.loginToSite(CREDENTIALS.INVALID_USER.USERNAME,CREDENTIALS.INVALID_USER.PASSWORD)
       await t.
-            expect(loginPage.errorMessage.exists).ok()
+            expect(loginPage.errorMessage.exists).ok() //Assertion
             .expect(loginPage.errorMessage.innerText).contains(MESSAGES.ERROR_MSG.INVALID_LOGIN)
 })
 
@@ -27,5 +27,5 @@ test('User can logout', async t =>{
       await t.expect(productListingPage.PLPTitle.exists).ok()
             .click(common.hamMenu)
             .click(common.logoutLink)
-            .expect(loginPage.loginTitle.exists).ok()
+            .expect(loginPage.loginTitle.exists).ok() //Assertion
 })

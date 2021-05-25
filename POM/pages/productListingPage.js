@@ -7,7 +7,7 @@ class productListingPage{
   constructor(){
     this.PLPTitle = Selector ('.title')
     this.productLink = Selector ('.inventory_item_name')
-    this.AddOnesieToCart = Selector ('#add-to-cart-sauce-labs-onesie')
+    //this.AddOnesieToCart = Selector ('#add-to-cart-sauce-labs-onesie')
     this.RemoveOnesie = Selector ('#remove-sauce-labs-onesie')
   }
 
@@ -24,6 +24,16 @@ class productListingPage{
     await productDetailPage.GoBackToPLP()
     await t.expect(common.cartBadge.innerText).eql("2")// Assertion
   }
+
+  async clickAddToCart(text) {
+      this.BtnAddToCart = Selector('.inventory_item_description')
+              .withText(text)
+              .child('.pricebar')
+              .child('.btn_primary.btn_inventory')
+      await t.click(this.BtnAddToCart)
+
+    }
+
 
 }
 

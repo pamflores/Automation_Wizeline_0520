@@ -15,7 +15,7 @@ fixture ('Add Items tests')
 
 //Challenge 5
 test('Add Item to the Cart from PLP', async t =>{
-   await t.click(productListingPage.AddOnesieToCart) //Needs refactor. This is very hardcoded by css  :)
+   await t.click(productListingPage.AddOnesieToCart) //Needs refactor. This is very hardcoded by css :)
    await t.expect(productListingPage.RemoveOnesie.exists).ok() //Needs refactor. This is very hardcoded :)
           .expect(common.cartBadge.innerText).eql("1") // Assertion
 })

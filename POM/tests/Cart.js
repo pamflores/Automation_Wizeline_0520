@@ -20,7 +20,7 @@ fixture ('Cart tests')
 //Challenge 7
 test('Missing Information', async t =>{
     await cartInfoPage.insertInfo(NAMES.FIRST_NAME,NAMES.LAST_NAME)
-    await t.expect(cartInfoPage.errorMessage.innerText).eql(MESSAGES.ERROR_MSG.POSTAL_CODE_REQ)
+    await t.expect(cartInfoPage.errorMessage.innerText).contains(MESSAGES.ERROR_MSG.POSTAL_CODE_REQ)
 })
 
 //Challenge 8

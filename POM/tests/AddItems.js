@@ -6,9 +6,6 @@ import {URL, PRODUCTS, CREDENTIALS} from '../common/data'
 import cartOverviewPage from '../pages/cartOverviewPage'
 import roles from '../common/roles'
 
-//constructor(){
-//    this.arreglo = [];
-//}
 
 fixture ('Add Items tests')
         .page(URL.URL)
@@ -18,21 +15,29 @@ fixture ('Add Items tests')
 
 //Challenge 5
 test('Add One Item to the Cart from PLP', async t =>{
-   await productListingPage.clickAddToCart(PRODUCTS.ONESIE)
-   await t.expect(common.cartBadge.innerText).eql("1") // Assertion
+  var prods=[PRODUCTS.ONESIE]
+  await productListingPage.addTheseProducts(prods)
+  await t.expect(common.cartBadge.innerText).eql(prods.length.toString())
+  // Challenge 9
+  // Check Items were added to the cart
+      await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.ONESIE)).eql(true)  //Assertion
 })
 
-// Challenge 6
-test.only('Add Items to the Cart from PDP', async t =>{
-  var arreglo=[PRODUCTS.LIGHT,PRODUCTS.BACKPACK]
-  await productListingPage.addProductsToCart(arreglo)
-  //await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK) //Assertions inside function
-  // Assertions implicit in next test
+  // Challenge 6
+test('Add Items to the Cart from PDP', async t =>{
+    var prods=[PRODUCTS.LIGHT,PRODUCTS.BACKPACK,PRODUCTS.ONESIE]
+    await productListingPage.addTheseProducts(prods)
+    await t.expect(common.cartBadge.innerText).eql(prods.length.toString())
+// Challenge 9
+// Check Items were added to the cart
+    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.LIGHT)).eql(true)  //Assertion
+    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.BACKPACK)).eql(true)  //Assertion
+    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.ONESIE)).eql(true)  //Assertion
 })
 
 //Challenge 9
-test('Items Were Added To The Cart', async t =>{
-    await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK)
-    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.LIGHT)).eql(true)  //Assertion
-    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.BACKPACK)).eql(true)  //Assertion
-})
+//test('Items Were Added To The Cart', async t =>{
+//    await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK)
+//    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.LIGHT)).eql(true)  //Assertion
+//    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.BACKPACK)).eql(true)  //Assertion
+//})

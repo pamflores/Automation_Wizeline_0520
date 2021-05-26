@@ -13,7 +13,8 @@ fixture ('Cart tests')
         .page(URL.URL)
         .beforeEach( async t=> {
             await t.useRole(roles.validUserRole) //Bonus 1
-            await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK) // Challenge 6
+            var prods=[PRODUCTS.LIGHT,PRODUCTS.BACKPACK]
+            await productListingPage.addTheseProducts(prods)
             await viewCartPage.openCart() //Challenge 4
         })
 

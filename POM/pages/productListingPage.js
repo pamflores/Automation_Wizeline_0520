@@ -16,28 +16,20 @@ class productListingPage{
         await productDetailPage.addItemToCart()
     }
 
-  async addProductsToCart(array){
-
-    const count = await array.count
-    console.log("cuantos?")
-    console.log(count)
-
-
-    for(var i = 1; i <= count; i++) {
-          console.log("producto:")
-          console.log(array[i])
-          console.log("voy a agregar producto")
-          await this.addItemToCart(array[i])
-          console.log("ya agregue producto")
-          await t.expect(common.cartBadge.innerText).eql(1)// Assertion
-    }
-    //await this.addItemToCart(prod1)
-    //await productDetailPage.GoBackToPLP()
-    //await t.expect(common.cartBadge.innerText).eql("1")// Assertion
-    //await this.addItemToCart(prod2)
-    //await productDetailPage.GoBackToPLP()
-    //await t.expect(common.cartBadge.innerText).eql("2")// Assertion
+async addProductsToCart(prod,expected){
+    await this.addItemToCart(prod)
+    await productDetailPage.GoBackToPLP()
+    await t.expect(common.cartBadge.innerText).eql(expected.toString())// Assertion adding one by one
   }
+
+async addTheseProducts(array){
+      for (var i=0; i < array.length; i++)
+      {
+        var expected = i + 1
+        await this.addProductsToCart(array[i],expected)
+      }
+    }
+
 
   async clickAddToCart(text) {
       this.BtnAddToCart = Selector('.inventory_item_description')
@@ -45,9 +37,7 @@ class productListingPage{
               .child('.pricebar')
               .child('.btn_primary.btn_inventory')
       await t.click(this.BtnAddToCart)
-
     }
-
 
 }
 

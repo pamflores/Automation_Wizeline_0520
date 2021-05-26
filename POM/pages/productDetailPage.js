@@ -1,5 +1,6 @@
 import {Selector, t} from 'testcafe'
 import productListingPage from '../pages/productListingPage'
+import {TITLES} from '../common/data'
 
 class productDetailPage{
 
@@ -12,6 +13,7 @@ class productDetailPage{
   async GoBackToPLP(){
     await t.click(this.BackToPLP)
     await t.expect(productListingPage.PLPTitle.exists).ok() //Assertion
+    await t.expect(productListingPage.PLPTitle.innerText).eql(TITLES.LISTING_TITLE) //Assertion
   }
 
   async addItemToCart(){

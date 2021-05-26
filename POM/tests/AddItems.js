@@ -6,6 +6,9 @@ import {URL, PRODUCTS, CREDENTIALS} from '../common/data'
 import cartOverviewPage from '../pages/cartOverviewPage'
 import roles from '../common/roles'
 
+//constructor(){
+//    this.arreglo = [];
+//}
 
 fixture ('Add Items tests')
         .page(URL.URL)
@@ -20,8 +23,10 @@ test('Add One Item to the Cart from PLP', async t =>{
 })
 
 // Challenge 6
-test('Add Items to the Cart from PDP', async t =>{
-  await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK) //Assertions inside function
+test.only('Add Items to the Cart from PDP', async t =>{
+  var arreglo=[PRODUCTS.LIGHT,PRODUCTS.BACKPACK]
+  await productListingPage.addProductsToCart(arreglo)
+  //await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK) //Assertions inside function
   // Assertions implicit in next test
 })
 

@@ -30,7 +30,7 @@ class cartInfoPage{
     }
 
     await t.click(this.continueBtn)
-    //await t.expect(cartOverviewPage.overviewTitle.innerText).eql(TITLES.CART_OVERVIEW_TITLE)
+
   }
 
 }

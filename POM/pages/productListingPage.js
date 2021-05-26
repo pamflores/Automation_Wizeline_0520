@@ -16,13 +16,27 @@ class productListingPage{
         await productDetailPage.addItemToCart()
     }
 
-  async add2ProuctsToCart(prod1,prod2){
-    await this.addItemToCart(prod1)
-    await productDetailPage.GoBackToPLP()
-    await t.expect(common.cartBadge.innerText).eql("1")// Assertion
-    await this.addItemToCart(prod2)
-    await productDetailPage.GoBackToPLP()
-    await t.expect(common.cartBadge.innerText).eql("2")// Assertion
+  async addProductsToCart(array){
+
+    const count = await array.count
+    console.log("cuantos?")
+    console.log(count)
+
+
+    for(var i = 1; i <= count; i++) {
+          console.log("producto:")
+          console.log(array[i])
+          console.log("voy a agregar producto")
+          await this.addItemToCart(array[i])
+          console.log("ya agregue producto")
+          await t.expect(common.cartBadge.innerText).eql(1)// Assertion
+    }
+    //await this.addItemToCart(prod1)
+    //await productDetailPage.GoBackToPLP()
+    //await t.expect(common.cartBadge.innerText).eql("1")// Assertion
+    //await this.addItemToCart(prod2)
+    //await productDetailPage.GoBackToPLP()
+    //await t.expect(common.cartBadge.innerText).eql("2")// Assertion
   }
 
   async clickAddToCart(text) {

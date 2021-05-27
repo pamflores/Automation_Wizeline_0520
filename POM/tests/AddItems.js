@@ -15,16 +15,16 @@ fixture ('Add Items tests')
 
 //Challenge 5
 test('Add One Item to the Cart from PLP', async t =>{
-  var prods=[PRODUCTS.ONESIE]
-  await productListingPage.addTheseProducts(prods)
-  await t.expect(common.cartBadge.innerText).eql(prods.length.toString())
+  await productListingPage.clickAddToCartPLP(PRODUCTS.ONESIE)
+  await t.expect(productListingPage.RemoveOnesie.exists).ok() // Assertion
+         .expect(common.cartBadge.innerText).eql("1") // Assertion
   // Challenge 9
   // Check Items were added to the cart
       await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.ONESIE)).eql(true)  //Assertion
 })
 
   // Challenge 6
-test('Add Items to the Cart from PDP', async t =>{
+test('Add Multiple Items to the Cart from PDP', async t =>{
     var prods=[PRODUCTS.LIGHT,PRODUCTS.BACKPACK,PRODUCTS.ONESIE]
     await productListingPage.addTheseProducts(prods)
     await t.expect(common.cartBadge.innerText).eql(prods.length.toString())
@@ -34,10 +34,3 @@ test('Add Items to the Cart from PDP', async t =>{
     await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.BACKPACK)).eql(true)  //Assertion
     await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.ONESIE)).eql(true)  //Assertion
 })
-
-//Challenge 9
-//test('Items Were Added To The Cart', async t =>{
-//    await productListingPage.add2ProuctsToCart(PRODUCTS.LIGHT,PRODUCTS.BACKPACK)
-//    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.LIGHT)).eql(true)  //Assertion
-//    await t.expect(await cartOverviewPage.validateProductInCart(PRODUCTS.BACKPACK)).eql(true)  //Assertion
-//})
